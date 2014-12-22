@@ -1,4 +1,4 @@
-package uk.co.cynicode.forge.blocks;
+package uk.co.cynicode.forge.blocks.blocks;
 /**
  * Copyright 2014 J4Numbers (j4numbers@gmail.com)
  *
@@ -15,9 +15,6 @@ package uk.co.cynicode.forge.blocks;
  * limitations under the License.
  */
 
-import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
-import net.minecraft.creativetab.CreativeTabs;
 import uk.co.cynicode.forge.reference.Names;
 
 /**

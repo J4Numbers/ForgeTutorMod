@@ -1,4 +1,4 @@
-package uk.co.cynicode.forge.reference;
+package uk.co.cynicode.forge.blocks.liquids;
 /**
  * Copyright 2014 J4Numbers (j4numbers@gmail.com)
  *
@@ -15,18 +15,22 @@ package uk.co.cynicode.forge.reference;
  * limitations under the License.
  */
 
+import net.minecraft.creativetab.CreativeTabs;
+
+import net.minecraftforge.fluids.Fluid;
+
 /**
- * Class Name - Blocks
- * Package - uk.co.cynicode.forge.reference
+ * Class Name - TarLiquid
+ * Package - uk.co.cynicode.forge.blocks
  * Desc of Class - ...
  * Author(s) - J4Numbers
  * Last Mod: 22/12/2014
  */
-public class Names {
+public class TarLiquid extends TutorLiquid {
 
-	public static class Blocks {
-		public static final String TARMAC = "tarmac";
-		public static final String TAR = "tar";
+	public TarLiquid(Fluid f) {
+		super(f);
+		this.setCreativeTab(CreativeTabs.tabMisc);
 	}
 
 }

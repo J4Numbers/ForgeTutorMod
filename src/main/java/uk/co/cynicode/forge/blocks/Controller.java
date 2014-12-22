@@ -19,6 +19,12 @@ import cpw.mods.fml.common.registry.GameRegistry;
 
 import net.minecraft.block.Block;
 
+import net.minecraftforge.fluids.Fluid;
+import net.minecraftforge.fluids.FluidRegistry;
+
+import uk.co.cynicode.forge.blocks.blocks.TarmacBlock;
+import uk.co.cynicode.forge.blocks.fluids.TarFluid;
+import uk.co.cynicode.forge.blocks.liquids.TarLiquid;
 import uk.co.cynicode.forge.reference.Names;
 
 /**
@@ -31,9 +37,14 @@ import uk.co.cynicode.forge.reference.Names;
 public class Controller {
 
 	public static Block tarmacBlock = new TarmacBlock();
+	public static Fluid tarFluid = new TarFluid(Names.Blocks.TAR);
+	public static Block tarLiquid;
 
 	public static void creation() {
 		GameRegistry.registerBlock(tarmacBlock, Names.Blocks.TARMAC);
+		FluidRegistry.registerFluid(tarFluid);
+		tarLiquid = new TarLiquid(tarFluid);
+		GameRegistry.registerBlock(tarLiquid, tarFluid.getUnlocalizedName());
 	}
 
 }

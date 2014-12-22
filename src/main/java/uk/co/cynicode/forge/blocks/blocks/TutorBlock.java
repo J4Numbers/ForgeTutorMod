@@ -1,4 +1,4 @@
-package uk.co.cynicode.forge.blocks;
+package uk.co.cynicode.forge.blocks.blocks;
 /**
  * Copyright 2014 J4Numbers (j4numbers@gmail.com)
  *
@@ -17,10 +17,12 @@ package uk.co.cynicode.forge.blocks;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+
 import uk.co.cynicode.forge.reference.Reference;
 
 /**
@@ -30,7 +32,7 @@ import uk.co.cynicode.forge.reference.Reference;
  * Author(s) - J4Numbers
  * Last Mod: 22/12/2014
  */
-public class TutorBlock extends Block {
+public abstract class TutorBlock extends Block {
 
 	public TutorBlock(Material block) {
 		super(block);

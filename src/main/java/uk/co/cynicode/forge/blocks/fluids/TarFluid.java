@@ -1,4 +1,4 @@
-package uk.co.cynicode.forge.reference;
+package uk.co.cynicode.forge.blocks.fluids;
 /**
  * Copyright 2014 J4Numbers (j4numbers@gmail.com)
  *
@@ -15,18 +15,30 @@ package uk.co.cynicode.forge.reference;
  * limitations under the License.
  */
 
+import net.minecraftforge.fluids.Fluid;
+import uk.co.cynicode.forge.reference.Reference;
+
 /**
- * Class Name - Blocks
- * Package - uk.co.cynicode.forge.reference
+ * Class Name - TarFluid
+ * Package - uk.co.cynicode.forge.blocks.fluids
  * Desc of Class - ...
  * Author(s) - J4Numbers
  * Last Mod: 22/12/2014
  */
-public class Names {
+public class TarFluid extends Fluid {
 
-	public static class Blocks {
-		public static final String TARMAC = "tarmac";
-		public static final String TAR = "tar";
+	public TarFluid(String fluidName) {
+		super(fluidName);
+		this.setViscosity(7500);
+		this.setDensity(1500);
+	}
+
+	@Override
+	public String getUnlocalizedName() {
+		return String.format(
+				"fluid.%s:%s", Reference.MOD_ID.toLowerCase(),
+				super.fluidName
+		);
 	}
 
 }

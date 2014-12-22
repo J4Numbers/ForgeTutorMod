@@ -22,6 +22,7 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
 import org.apache.logging.log4j.Logger;
+
 import uk.co.cynicode.forge.blocks.Controller;
 import uk.co.cynicode.forge.reference.Reference;
 

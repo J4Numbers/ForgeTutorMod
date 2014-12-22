@@ -4,5 +4,8 @@
 # Items
 #item.forgetutormod:tarmac.name=Tarmac
 
-#Blocks
+# Blocks
 blocks.forgetutormod:tarmac.name=Tarmac
+
+# Fluids
+fluid.forgetutormod:tar.name=Tar
