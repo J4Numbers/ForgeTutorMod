@@ -17,9 +17,9 @@ buildscript {
 apply plugin: 'forge'
 
 
-group = "uk.co.cynicode"
+group = "uk.co.cynicode.forge"
 archivesBaseName = "ForgeTutorMod"
-version = "1.0"
+version = "10.13.2.1230-1.0"
 //Dependencies for my mod go here
 dependencies {
   compile fileTree(dir:'deps',include:'*.jar')

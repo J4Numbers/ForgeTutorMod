@@ -1,0 +1,21 @@
+[
+{
+  "modid": "ForgeTutorMod",
+  "name": "Forge Tutor Mod",
+  "description": "Mod created for the process of learning Forge items",
+  "version": "1.0",
+  "mcversion": "1.7.10",
+  "url": "",
+  "updateUrl": "",
+  "authorList": [
+    "J4Numbers"
+  ],
+  "credits": "CyniCode",
+  "logoFile": "",
+  "screenshots": [
+  ],
+  "parent":"",
+  "dependencies": [
+  ]
+}
+]
