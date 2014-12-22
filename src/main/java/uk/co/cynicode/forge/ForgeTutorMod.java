@@ -22,6 +22,8 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
 import org.apache.logging.log4j.Logger;
+import uk.co.cynicode.forge.blocks.Controller;
+import uk.co.cynicode.forge.reference.Reference;
 
 /**
  * Class Name - ForgeTutorMod
@@ -30,7 +32,7 @@ import org.apache.logging.log4j.Logger;
  * Author(s) - J4Numbers
  * Last Mod: 22/12/2014
  */
-@Mod(modid = "ForgeTutorMod", name = "Forge Tutor Mod", version = "1.0")
+@Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.MOD_VERSION)
 public class ForgeTutorMod {
 
 	public static final boolean DEBUG_MODE = false;
@@ -44,6 +46,7 @@ public class ForgeTutorMod {
 	public void preInit(FMLPreInitializationEvent pie) {
 		logger = pie.getModLog();
 		logger.info("Forge Tutor Mod is in pre-init stage!");
+		Controller.creation();
 	}
 
 	@Mod.EventHandler
