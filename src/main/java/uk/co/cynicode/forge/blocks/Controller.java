@@ -18,17 +18,17 @@ package uk.co.cynicode.forge.blocks;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 import net.minecraft.block.Block;
-
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.RecipesCrafting;
+
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
 
 import uk.co.cynicode.forge.blocks.blocks.TarmacBlock;
 import uk.co.cynicode.forge.blocks.fluids.TarFluid;
 import uk.co.cynicode.forge.blocks.liquids.TarLiquid;
+import uk.co.cynicode.forge.generation.BlockGeneration;
 import uk.co.cynicode.forge.reference.Names;
 
 /**
@@ -44,8 +44,6 @@ public class Controller {
 	public static Fluid tarFluid = new TarFluid(Names.Blocks.TAR);
 	public static Block tarLiquid;
 
-	public static RecipesCrafting crafting;
-
 	public static void creation() {
 		GameRegistry.registerBlock(tarmacBlock, Names.Blocks.TARMAC);
 		FluidRegistry.registerFluid(tarFluid);
@@ -55,6 +53,7 @@ public class Controller {
 				new ItemStack(tarmacBlock), "xxx", "xyx", "xxx",
 				'x', new ItemStack(Blocks.stone), 'y', new ItemStack(Items.lava_bucket)
 		);
+		GameRegistry.registerWorldGenerator(new BlockGeneration(), 13);
 	}
 
 }
