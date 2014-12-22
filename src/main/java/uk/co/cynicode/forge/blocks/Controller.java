@@ -57,6 +57,7 @@ public class Controller {
 				'x', new ItemStack(Blocks.stone), 'y', new ItemStack(Items.lava_bucket)
 		);
 		GameRegistry.registerItem(tarballItem, Names.Blocks.TARBALL);
+		GameRegistry.addSmelting(Blocks.stone, new ItemStack(tarballItem), 10);
 		GameRegistry.registerWorldGenerator(new BlockGeneration(), 13);
 	}
 
