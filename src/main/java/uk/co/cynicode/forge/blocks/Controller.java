@@ -19,6 +19,10 @@ import cpw.mods.fml.common.registry.GameRegistry;
 
 import net.minecraft.block.Block;
 
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.RecipesCrafting;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
 
@@ -40,11 +44,17 @@ public class Controller {
 	public static Fluid tarFluid = new TarFluid(Names.Blocks.TAR);
 	public static Block tarLiquid;
 
+	public static RecipesCrafting crafting;
+
 	public static void creation() {
 		GameRegistry.registerBlock(tarmacBlock, Names.Blocks.TARMAC);
 		FluidRegistry.registerFluid(tarFluid);
 		tarLiquid = new TarLiquid(tarFluid);
 		GameRegistry.registerBlock(tarLiquid, tarFluid.getUnlocalizedName());
+		GameRegistry.addRecipe(
+				new ItemStack(tarmacBlock), "xxx", "xyx", "xxx",
+				'x', new ItemStack(Blocks.stone), 'y', new ItemStack(Items.lava_bucket)
+		);
 	}
 
 }
