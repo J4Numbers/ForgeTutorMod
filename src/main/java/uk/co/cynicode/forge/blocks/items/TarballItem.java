@@ -1,4 +1,4 @@
-package uk.co.cynicode.forge.reference;
+package uk.co.cynicode.forge.blocks.items;
 /**
  * Copyright 2014 J4Numbers (j4numbers@gmail.com)
  *
@@ -15,19 +15,22 @@ package uk.co.cynicode.forge.reference;
  * limitations under the License.
  */
 
+import net.minecraft.creativetab.CreativeTabs;
+import uk.co.cynicode.forge.reference.Names;
+
 /**
- * Class Name - Blocks
- * Package - uk.co.cynicode.forge.reference
+ * Class Name - TarballItem
+ * Package - uk.co.cynicode.forge.blocks.items
  * Desc of Class - ...
  * Author(s) - J4Numbers
  * Last Mod: 22/12/2014
  */
-public class Names {
+public class TarballItem extends TutorItem {
 
-	public static class Blocks {
-		public static final String TARMAC = "tarmac";
-		public static final String TAR = "tar";
-		public static final String TARBALL = "tarball";
+	public TarballItem() {
+		super(Names.Blocks.TARBALL);
+		this.setMaxStackSize(64);
+		this.setCreativeTab(CreativeTabs.tabMisc);
 	}
 
 }

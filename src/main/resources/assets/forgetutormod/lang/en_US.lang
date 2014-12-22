@@ -2,7 +2,7 @@
 #itemGroup.forgetutormod=Forge Tutor Mod
 
 # Items
-#item.forgetutormod:tarmac.name=Tarmac
+item.forgetutormod:tarball.name=Tarball
 
 # Blocks
 blocks.forgetutormod:tarmac.name=Tarmac
