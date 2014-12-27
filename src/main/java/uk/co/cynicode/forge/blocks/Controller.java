@@ -21,13 +21,16 @@ import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemBucket;
 import net.minecraft.item.ItemStack;
 
 import net.minecraftforge.fluids.Fluid;
+import net.minecraftforge.fluids.FluidContainerRegistry;
 import net.minecraftforge.fluids.FluidRegistry;
 
 import uk.co.cynicode.forge.blocks.blocks.TarmacBlock;
 import uk.co.cynicode.forge.blocks.fluids.TarFluid;
+import uk.co.cynicode.forge.blocks.items.TarBucket;
 import uk.co.cynicode.forge.blocks.items.TarballItem;
 import uk.co.cynicode.forge.blocks.liquids.TarLiquid;
 import uk.co.cynicode.forge.generation.BlockGeneration;
@@ -46,19 +49,28 @@ public class Controller {
 	public static Fluid tarFluid = new TarFluid(Names.Blocks.TAR);
 	public static Block tarLiquid;
 	public static Item tarballItem = new TarballItem();
+	public static Item tarBucket = new TarBucket(tarLiquid);
 
 	public static void creation() {
 		GameRegistry.registerBlock(tarmacBlock, Names.Blocks.TARMAC);
 		FluidRegistry.registerFluid(tarFluid);
 		tarLiquid = new TarLiquid(tarFluid);
 		GameRegistry.registerBlock(tarLiquid, tarFluid.getUnlocalizedName());
+		GameRegistry.registerItem(tarballItem, Names.Blocks.TARBALL);
+		GameRegistry.registerItem(tarBucket, Names.Blocks.TARBUCKET);
+		FluidContainerRegistry.registerFluidContainer(
+				tarFluid, new ItemStack(tarBucket), new ItemStack(Items.bucket)
+		);
+		GameRegistry.addSmelting(Blocks.stone, new ItemStack(tarballItem), 10);
+		GameRegistry.registerWorldGenerator(new BlockGeneration(), 13);
 		GameRegistry.addRecipe(
 				new ItemStack(tarmacBlock), "xxx", "xyx", "xxx",
 				'x', new ItemStack(Blocks.stone), 'y', new ItemStack(Items.lava_bucket)
 		);
-		GameRegistry.registerItem(tarballItem, Names.Blocks.TARBALL);
-		GameRegistry.addSmelting(Blocks.stone, new ItemStack(tarballItem), 10);
-		GameRegistry.registerWorldGenerator(new BlockGeneration(), 13);
+		GameRegistry.addRecipe(
+				new ItemStack(tarBucket), " x ", "xyx", " x ",
+				'x', new ItemStack(tarballItem), 'y', new ItemStack(Items.bucket)
+		);
 	}
 
 }

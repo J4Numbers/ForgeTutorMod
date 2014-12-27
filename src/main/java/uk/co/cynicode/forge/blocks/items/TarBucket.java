@@ -17,29 +17,29 @@ package uk.co.cynicode.forge.blocks.items;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-
+import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.item.Item;
-
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.Items;
+import net.minecraft.item.ItemBucket;
 import uk.co.cynicode.forge.reference.Names;
 import uk.co.cynicode.forge.reference.Reference;
 
 /**
- * Class Name - TutorItem
+ * Class Name - TarBucket
  * Package - uk.co.cynicode.forge.blocks.items
  * Desc of Class - ...
  * Author(s) - J4Numbers
- * Last Mod: 22/12/2014
+ * Last Mod: 27/12/2014
  */
-public abstract class TutorItem extends Item {
+public class TarBucket extends ItemBucket {
 
-	public String itemName;
-
-	public TutorItem(String item) {
-		super();
-		itemName = item;
+	public TarBucket(Block liquid) {
+		super(liquid);
+		super.setContainerItem(Items.bucket);
+		super.setCreativeTab(CreativeTabs.tabMisc);
 		setUnlocalizedName(
-				String.format("forgetutormod:%s",itemName)
+				String.format("forgetutormod:%s", Names.Blocks.TARBUCKET)
 		);
 	}
 
@@ -47,7 +47,7 @@ public abstract class TutorItem extends Item {
 	public String getUnlocalizedName() {
 		return String.format(
 				"item.%s:%s", Reference.MOD_ID.toLowerCase(),
-				itemName
+				Names.Blocks.TARBUCKET
 		);
 	}
 

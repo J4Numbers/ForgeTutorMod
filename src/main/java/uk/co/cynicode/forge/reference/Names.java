@@ -28,6 +28,7 @@ public class Names {
 		public static final String TARMAC = "tarmac";
 		public static final String TAR = "tar";
 		public static final String TARBALL = "tarball";
+		public static final String TARBUCKET = "tarBucket";
 	}
 
 }
