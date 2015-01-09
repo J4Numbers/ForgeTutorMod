@@ -15,15 +15,8 @@ package uk.co.cynicode.forge.blocks.blocks;
  * limitations under the License.
  */
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.creativetab.CreativeTabs;
-
-import uk.co.cynicode.forge.reference.Reference;
 
 /**
  * Class Name - TutorBlock
@@ -32,38 +25,10 @@ import uk.co.cynicode.forge.reference.Reference;
  * Author(s) - J4Numbers
  * Last Mod: 22/12/2014
  */
-public abstract class TutorBlock extends Block {
+public class TutorBlock extends Block {
 
 	public TutorBlock(Material block) {
 		super(block);
-		this.setCreativeTab(CreativeTabs.tabBlock);
-	}
-
-	public TutorBlock() {
-		this(Material.rock);
-	}
-
-	@Override
-	public String getUnlocalizedName() {
-		return String.format(
-				"blocks.%s:%s", Reference.MOD_ID.toLowerCase(),
-				getUnwrappedUnlocalizedName(super.getUnlocalizedName())
-		);
-	}
-
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void registerBlockIcons(IIconRegister iconRegister) {
-		blockIcon = iconRegister.registerIcon(
-				String.format(
-						"%s",
-						getUnwrappedUnlocalizedName(this.getUnlocalizedName())
-				)
-		);
-	}
-
-	protected String getUnwrappedUnlocalizedName(String unlocalizedName) {
-		return unlocalizedName.substring(unlocalizedName.indexOf(".") + 1);
 	}
 
 }

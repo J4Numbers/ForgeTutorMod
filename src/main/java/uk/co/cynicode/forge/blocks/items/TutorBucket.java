@@ -1,4 +1,4 @@
-package uk.co.cynicode.forge.blocks.blocks;
+package uk.co.cynicode.forge.blocks.items;
 /**
  * Copyright 2014 J4Numbers (j4numbers@gmail.com)
  *
@@ -15,21 +15,22 @@ package uk.co.cynicode.forge.blocks.blocks;
  * limitations under the License.
  */
 
-import uk.co.cynicode.forge.reference.Names;
+import net.minecraft.block.Block;
+import net.minecraft.init.Items;
+import net.minecraft.item.ItemBucket;
 
 /**
- * Class Name - TarmacBlock
- * Package - uk.co.cynicode.forge.blocks
+ * Class Name - TarBucket
+ * Package - uk.co.cynicode.forge.blocks.items
  * Desc of Class - ...
  * Author(s) - J4Numbers
- * Last Mod: 22/12/2014
+ * Last Mod: 27/12/2014
  */
-public class TarmacBlock extends TutorBlock {
+public class TutorBucket extends ItemBucket {
 
-	public TarmacBlock() {
-		super();
-		this.setBlockName(Names.Blocks.TARMAC);
-		this.setBlockTextureName(Names.Blocks.TARMAC);
+	public TutorBucket(Block liquid) {
+		super(liquid);
+		super.setContainerItem(Items.bucket);
 	}
 
 }

@@ -37,7 +37,7 @@ import uk.co.cynicode.forge.reference.Reference;
  * Author(s) - J4Numbers
  * Last Mod: 22/12/2014
  */
-public abstract class TutorLiquid extends BlockFluidClassic {
+public class TutorLiquid extends BlockFluidClassic {
 
 	@SideOnly(Side.CLIENT)
 	protected IIcon stillIcon;
@@ -58,7 +58,7 @@ public abstract class TutorLiquid extends BlockFluidClassic {
 	@Override
 	public String getUnlocalizedName() {
 		return String.format(
-				"fluid.%s:%s", Reference.MOD_ID.toLowerCase(),
+				"%s:%s", Reference.MOD_ID.toLowerCase(),
 				super.fluidName
 		);
 	}

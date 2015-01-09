@@ -15,14 +15,7 @@ package uk.co.cynicode.forge.blocks.items;
  * limitations under the License.
  */
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-
-import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.item.Item;
-
-import uk.co.cynicode.forge.reference.Names;
-import uk.co.cynicode.forge.reference.Reference;
 
 /**
  * Class Name - TutorItem
@@ -31,39 +24,11 @@ import uk.co.cynicode.forge.reference.Reference;
  * Author(s) - J4Numbers
  * Last Mod: 22/12/2014
  */
-public abstract class TutorItem extends Item {
-
-	public String itemName;
+public class TutorItem extends Item {
 
 	public TutorItem(String item) {
 		super();
-		itemName = item;
-		setUnlocalizedName(
-				String.format("forgetutormod:%s",itemName)
-		);
-	}
-
-	@Override
-	public String getUnlocalizedName() {
-		return String.format(
-				"item.%s:%s", Reference.MOD_ID.toLowerCase(),
-				itemName
-		);
-	}
-
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void registerIcons(IIconRegister iconRegister) {
-		itemIcon = iconRegister.registerIcon(
-				String.format(
-						"%s",
-						getUnwrappedUnlocalizedName(this.getUnlocalizedName())
-				)
-		);
-	}
-
-	protected String getUnwrappedUnlocalizedName(String unlocalizedName) {
-		return unlocalizedName.substring(unlocalizedName.indexOf(".") + 1);
+		this.setUnlocalizedName(item);
 	}
 
 }

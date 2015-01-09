@@ -18,23 +18,24 @@ package uk.co.cynicode.forge.blocks;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemBucket;
 import net.minecraft.item.ItemStack;
 
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidContainerRegistry;
 import net.minecraftforge.fluids.FluidRegistry;
 
-import uk.co.cynicode.forge.blocks.blocks.TarmacBlock;
-import uk.co.cynicode.forge.blocks.fluids.TarFluid;
-import uk.co.cynicode.forge.blocks.items.TarBucket;
-import uk.co.cynicode.forge.blocks.items.TarballItem;
-import uk.co.cynicode.forge.blocks.liquids.TarLiquid;
+import uk.co.cynicode.forge.blocks.blocks.TutorBlock;
+import uk.co.cynicode.forge.blocks.items.TutorBucket;
+import uk.co.cynicode.forge.blocks.items.TutorItem;
+import uk.co.cynicode.forge.blocks.liquids.TutorLiquid;
 import uk.co.cynicode.forge.generation.BlockGeneration;
 import uk.co.cynicode.forge.reference.Names;
+import uk.co.cynicode.forge.reference.Reference;
 
 /**
  * Class Name - Controller
@@ -45,22 +46,41 @@ import uk.co.cynicode.forge.reference.Names;
  */
 public class Controller {
 
-	public static Block tarmacBlock = new TarmacBlock();
-	public static Fluid tarFluid = new TarFluid(Names.Blocks.TAR);
+	public static Block tarmacBlock;
+	public static Fluid tarFluid;
 	public static Block tarLiquid;
-	public static Item tarballItem = new TarballItem();
-	public static Item tarBucket = new TarBucket(tarLiquid);
+	public static Item tarballItem;
+	public static Item tarBucket;
 
 	public static void creation() {
+		tarmacBlock = new TutorBlock(Material.rock).setBlockName(Names.Blocks.TAR)
+				.setBlockTextureName(
+						String.format("%s:%s", Reference.MOD_ID, Names.Blocks.TARMAC)
+				)
+				.setCreativeTab(CreativeTabs.tabMisc);
+		tarballItem = new TutorItem(Names.Blocks.TARBUCKET).setUnlocalizedName(Names.Blocks.TARBALL)
+					.setCreativeTab(CreativeTabs.tabMisc).setTextureName(
+						String.format("%s:%s", Reference.MOD_ID, Names.Blocks.TARBALL)
+				);
+		tarFluid = new Fluid(Names.Blocks.TAR);
+		tarFluid.setViscosity(7500).setDensity(1500);
 		GameRegistry.registerBlock(tarmacBlock, Names.Blocks.TARMAC);
 		FluidRegistry.registerFluid(tarFluid);
-		tarLiquid = new TarLiquid(tarFluid);
+		tarLiquid = new TutorLiquid(tarFluid);
+		tarBucket = new TutorBucket(tarLiquid).setUnlocalizedName(Names.Blocks.TARBUCKET)
+				.setCreativeTab(CreativeTabs.tabMisc)
+				.setTextureName( String.format(
+						"%s:%s", Reference.MOD_ID, Names.Blocks.TARBUCKET
+				));
+		tarFluid.setBlock(tarLiquid);
+
 		GameRegistry.registerBlock(tarLiquid, tarFluid.getUnlocalizedName());
 		GameRegistry.registerItem(tarballItem, Names.Blocks.TARBALL);
 		GameRegistry.registerItem(tarBucket, Names.Blocks.TARBUCKET);
 		FluidContainerRegistry.registerFluidContainer(
-				tarFluid, new ItemStack(tarBucket), new ItemStack(Items.bucket)
+				FluidRegistry.getFluidStack(Names.Blocks.TAR, FluidContainerRegistry.BUCKET_VOLUME), new ItemStack(tarBucket), new ItemStack(Items.bucket)
 		);
+
 		GameRegistry.addSmelting(Blocks.stone, new ItemStack(tarballItem), 10);
 		GameRegistry.registerWorldGenerator(new BlockGeneration(), 13);
 		GameRegistry.addRecipe(
