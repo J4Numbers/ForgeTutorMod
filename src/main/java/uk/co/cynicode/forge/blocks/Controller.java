@@ -33,6 +33,7 @@ import uk.co.cynicode.forge.blocks.blocks.TutorBlock;
 import uk.co.cynicode.forge.blocks.items.TutorBucket;
 import uk.co.cynicode.forge.blocks.items.TutorItem;
 import uk.co.cynicode.forge.blocks.liquids.TutorLiquid;
+import uk.co.cynicode.forge.blocks.tabs.TutorTab;
 import uk.co.cynicode.forge.generation.BlockGeneration;
 import uk.co.cynicode.forge.reference.Names;
 import uk.co.cynicode.forge.reference.Reference;
@@ -46,6 +47,8 @@ import uk.co.cynicode.forge.reference.Reference;
  */
 public class Controller {
 
+	public static CreativeTabs tutorTab;
+
 	public static Block tarmacBlock;
 	public static Fluid tarFluid;
 	public static Block tarLiquid;
@@ -53,22 +56,28 @@ public class Controller {
 	public static Item tarBucket;
 
 	public static void creation() {
-		tarmacBlock = new TutorBlock(Material.rock).setBlockName(Names.Blocks.TAR)
+		tutorTab = new TutorTab(Reference.MOD_ID.toLowerCase());
+		tarFluid = new Fluid(Names.Blocks.TAR);
+
+		tarmacBlock = new TutorBlock(Material.rock).setBlockName(Names.Blocks.TARMAC)
 				.setBlockTextureName(
 						String.format("%s:%s", Reference.MOD_ID, Names.Blocks.TARMAC)
 				)
-				.setCreativeTab(CreativeTabs.tabMisc);
+				.setCreativeTab(tutorTab);
 		tarballItem = new TutorItem(Names.Blocks.TARBUCKET).setUnlocalizedName(Names.Blocks.TARBALL)
-					.setCreativeTab(CreativeTabs.tabMisc).setTextureName(
+					.setCreativeTab(tutorTab).setTextureName(
 						String.format("%s:%s", Reference.MOD_ID, Names.Blocks.TARBALL)
 				);
-		tarFluid = new Fluid(Names.Blocks.TAR);
+
 		tarFluid.setViscosity(7500).setDensity(1500);
 		GameRegistry.registerBlock(tarmacBlock, Names.Blocks.TARMAC);
 		FluidRegistry.registerFluid(tarFluid);
-		tarLiquid = new TutorLiquid(tarFluid);
+		tarLiquid = new TutorLiquid(tarFluid).setBlockName(Names.Blocks.TAR)
+				.setBlockTextureName(String.format(
+						"%s:%s", Reference.MOD_ID, Names.Blocks.TAR
+				)).setCreativeTab(tutorTab);
 		tarBucket = new TutorBucket(tarLiquid).setUnlocalizedName(Names.Blocks.TARBUCKET)
-				.setCreativeTab(CreativeTabs.tabMisc)
+				.setCreativeTab(tutorTab)
 				.setTextureName( String.format(
 						"%s:%s", Reference.MOD_ID, Names.Blocks.TARBUCKET
 				));

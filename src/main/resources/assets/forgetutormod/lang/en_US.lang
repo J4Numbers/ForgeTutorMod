@@ -1,11 +1,12 @@
 # Creative Tabs
-#itemGroup.forgetutormod=Forge Tutor Mod
+itemGroup.forgetutormod=Forge Tutor Mod
 
 # Items
-item.forgetutormod:tarball.name=Tarball
+item.tarball.name=Tarball
+item.tarBucket.name=Bucket o' Tar
 
 # Blocks
-blocks.forgetutormod:tarmac.name=Tarmac
+tile.tarmac.name=Tarmac
 
 # Fluids
-fluid.forgetutormod:tar.name=Tar
+tile.tar.name=Tar
