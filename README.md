@@ -24,9 +24,9 @@ and ending in the generation of a completely new world (potentially, haven't qui
 4. Commands
     1. Adding a New Command
     2. Linking New Commands
-5. Acheivements
-    1. Adding a New Acheivement
-    2. Tracking Stats for Acheivements
+5. Achievements
+    1. Adding a New Achievement
+    2. Tracking Stats for Achievements
 6. Inventory
     1. Adding a Block which Controls Inventory
     2. Creating a GUI for the Inventory

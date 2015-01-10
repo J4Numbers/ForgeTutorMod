@@ -30,10 +30,12 @@ import net.minecraftforge.fluids.FluidContainerRegistry;
 import net.minecraftforge.fluids.FluidRegistry;
 
 import uk.co.cynicode.forge.blocks.blocks.TutorBlock;
+import uk.co.cynicode.forge.blocks.blocks.WarningBlock;
 import uk.co.cynicode.forge.blocks.items.TutorBucket;
 import uk.co.cynicode.forge.blocks.items.TutorItem;
 import uk.co.cynicode.forge.blocks.liquids.TutorLiquid;
 import uk.co.cynicode.forge.blocks.tabs.TutorTab;
+import uk.co.cynicode.forge.blocks.tile_entities.TileEntityWarning;
 import uk.co.cynicode.forge.generation.BlockGeneration;
 import uk.co.cynicode.forge.reference.Names;
 import uk.co.cynicode.forge.reference.Reference;
@@ -49,9 +51,11 @@ public class Controller {
 
 	public static CreativeTabs tutorTab;
 
-	public static Block tarmacBlock;
 	public static Fluid tarFluid;
+	public static Block tarmacBlock;
 	public static Block tarLiquid;
+	public static Block warningBlockRed;
+	public static Block warningBlockGreen;
 	public static Item tarballItem;
 	public static Item tarBucket;
 
@@ -64,6 +68,12 @@ public class Controller {
 						String.format("%s:%s", Reference.MOD_ID, Names.Blocks.TARMAC)
 				)
 				.setCreativeTab(tutorTab);
+		warningBlockRed = new WarningBlock(Material.anvil, String.format(
+				"%s:%s", Reference.MOD_ID, Names.Blocks.WARNING
+		), "red").setBlockName(Names.Blocks.WARNING).setCreativeTab(tutorTab);
+		warningBlockGreen = new WarningBlock(Material.anvil, String.format(
+				"%s:%s", Reference.MOD_ID, Names.Blocks.WARNING
+		), "green").setBlockName(Names.Blocks.WARNING);
 		tarballItem = new TutorItem(Names.Blocks.TARBUCKET).setUnlocalizedName(Names.Blocks.TARBALL)
 					.setCreativeTab(tutorTab).setTextureName(
 						String.format("%s:%s", Reference.MOD_ID, Names.Blocks.TARBALL)
@@ -71,6 +81,9 @@ public class Controller {
 
 		tarFluid.setViscosity(7500).setDensity(1500);
 		GameRegistry.registerBlock(tarmacBlock, Names.Blocks.TARMAC);
+		GameRegistry.registerBlock(warningBlockRed, Names.Blocks.WARNING);
+		GameRegistry.registerBlock(warningBlockGreen, Names.Blocks.WARNING_GREEN);
+		GameRegistry.registerTileEntity(TileEntityWarning.class, Names.Blocks.TE_WARNING);
 		FluidRegistry.registerFluid(tarFluid);
 		tarLiquid = new TutorLiquid(tarFluid).setBlockName(Names.Blocks.TAR)
 				.setBlockTextureName(String.format(

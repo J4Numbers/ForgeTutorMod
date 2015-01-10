@@ -29,6 +29,9 @@ public class Names {
 		public static final String TAR = "tar";
 		public static final String TARBALL = "tarball";
 		public static final String TARBUCKET = "tarBucket";
+		public static final String WARNING = "warning";
+		public static final String WARNING_GREEN = "greenWarning";
+		public static final String TE_WARNING = "warningBlock";
 	}
 
 }

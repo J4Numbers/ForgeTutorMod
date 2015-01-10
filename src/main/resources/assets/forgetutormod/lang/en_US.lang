@@ -7,6 +7,7 @@ item.tarBucket.name=Bucket o' Tar
 
 # Blocks
 tile.tarmac.name=Tarmac
+tile.warning.name=Warning Block
 
 # Fluids
 tile.tar.name=Tar
